@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purplecade Realms</title>
+
+<style>
+body {
+    background-color: purple;
+    color: #CCCCFF; /* Periwinkle */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+header {
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.section {
+    margin: 30px auto;
+    max-width: 800px;
+}
+
+button {
+    background-color: #B8860B; /* Dark Yellow */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 8px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#homePage {
+    display: block;
+}
+
+#embedPage {
+    display: none;
+    height: 100vh;
+}
+
+iframe {
+    width: 100%;
+    height: calc(100vh - 60px);
+    border: none;
+}
+
+.backButton {
+    width: 100%;
+    border-radius: 0;
+    margin: 0;
+}
+</style>
+</head>
+<body>
+
+<div id="homePage">
+    <header>
+        <h1>Purplecade Realms</h1>
+    </header>
+
+    <div class="section">
+        <h2>= Game Selection =</h2>
+
+        <button onclick="loadEmbed('https://play.fancade.com/6A149E505868B2E4')">
+            Play Purplecade Realms
+        </button>
+    </div>
+
+    <div class="section">
+        <h2>= Extras =</h2>
+
+        <button onclick="loadEmbed('https://docs.google.com/document/d/1KL9O8d-mnIpBcd5P-zjp_yJadDqOqgFkPvq2eLGYpGg/edit?usp=drivesdk')">
+            Purplecade Realms: Official Manual
+        </button>
+    </div>
+</div>
+
+<div id="embedPage">
+    <button class="backButton" onclick="goHome()">← Back to Home Page</button>
+
+    <iframe id="contentFrame"></iframe>
+</div>
+
+<script>
+function loadEmbed(url) {
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("embedPage").style.display = "block";
+    document.getElementById("contentFrame").src = url;
+}
+
+function goHome() {
+    document.getElementById("contentFrame").src = "";
+    document.getElementById("embedPage").style.display = "none";
+    document.getElementById("homePage").style.display = "block";
+}
+</script>
+
+</body>
+</html>
